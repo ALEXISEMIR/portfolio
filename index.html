@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!doctype html>
 <html lang="es">
 <head>
@@ -480,3 +481,598 @@
   </script>
 </body>
 </html>
+=======
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Alex — Portafolio</title>
+  <meta name="description" content="Portafolio de Alex: diseño y desarrollo web. Menús digitales, landing pages y sistemas sencillos." />
+  <meta name="theme-color" content="#07080c" />
+
+  <!-- Open Graph (para compartir en WhatsApp/FB/Discord) -->
+  <meta property="og:title" content="Alex — Portafolio" />
+  <meta property="og:description" content="Diseño y construyo experiencias web modernas. Menús digitales, landing pages y sistemas sencillos." />
+  <meta property="og:type" content="website" />
+  <!-- Si luego subes una imagen, ponla aquí: /assets/og.jpg -->
+  <!-- <meta property="og:image" content="https://TU_USUARIO.github.io/portfolio/assets/og.jpg" /> -->
+
+  <style>
+    :root{
+      --bg:#07080c;
+      --text:rgba(255,255,255,.92);
+      --muted:rgba(255,255,255,.68);
+      --muted2:rgba(255,255,255,.52);
+      --border:rgba(255,255,255,.10);
+      --shadow: 0 18px 70px rgba(0,0,0,.55);
+      --radius: 22px;
+      --radius2: 28px;
+      --max: 1120px;
+      --focus: rgba(255,255,255,.65);
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      background:
+        radial-gradient(900px 500px at 18% 10%, rgba(255,255,255,.06), transparent 60%),
+        radial-gradient(900px 500px at 82% 30%, rgba(255,255,255,.05), transparent 60%),
+        radial-gradient(900px 700px at 50% 110%, rgba(255,255,255,.05), transparent 60%),
+        var(--bg);
+      color:var(--text);
+      letter-spacing:.2px;
+    }
+
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:var(--max);margin:0 auto;padding:22px 18px 70px}
+
+    /* Accesibilidad */
+    .skip{
+      position:absolute; left:-9999px; top:8px;
+      padding:10px 12px; border-radius:999px;
+      border:1px solid var(--border);
+      background: rgba(0,0,0,.65);
+      z-index: 999;
+    }
+    .skip:focus{left:14px; outline:2px solid var(--focus); outline-offset:2px}
+    :focus-visible{outline:2px solid var(--focus); outline-offset:3px; border-radius:12px}
+
+    /* Topbar */
+    .topbar{
+      display:flex; align-items:center; justify-content:space-between;
+      padding: 14px 14px;
+      border:1px solid var(--border);
+      background: rgba(0,0,0,.25);
+      backdrop-filter: blur(10px);
+      border-radius: 999px;
+      position: sticky;
+      top: 14px;
+      z-index: 40;
+      gap: 10px;
+    }
+    .brand{display:flex; gap:10px; align-items:center; font-weight:700}
+    .logo{
+      width:28px;height:28px;border-radius:999px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.04);
+      display:grid; place-items:center;
+      box-shadow: 0 0 0 6px rgba(255,255,255,.03);
+    }
+    .nav{display:flex; gap:10px; align-items:center}
+    .nav a{
+      padding:9px 12px;border-radius:999px;
+      color:var(--muted);
+      border:1px solid transparent;
+      transition:.2s ease;
+      font-size:13px;
+    }
+    .nav a:hover{color:var(--text); border-color:var(--border); background:rgba(255,255,255,.03)}
+
+    /* Mobile menu */
+    .menuBtn{
+      display:none;
+      padding:10px 12px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.04);
+      color: var(--text);
+      font-weight:700;
+      font-size:13px;
+      cursor:pointer;
+      user-select:none;
+    }
+    .mobileNav{
+      display:none;
+      margin-top: 10px;
+      border:1px solid var(--border);
+      border-radius: 20px;
+      background: rgba(0,0,0,.25);
+      backdrop-filter: blur(10px);
+      overflow:hidden;
+    }
+    .mobileNav a{
+      display:block;
+      padding: 12px 14px;
+      color: var(--muted);
+      border-top: 1px solid rgba(255,255,255,.06);
+    }
+    .mobileNav a:first-child{border-top:none}
+    .mobileNav a:hover{color: var(--text); background: rgba(255,255,255,.03)}
+
+    /* HERO */
+    .hero{
+      margin-top: 18px;
+      padding: 42px 14px 28px;
+      border-radius: calc(var(--radius2) + 6px);
+      position:relative;
+      overflow:hidden;
+    }
+    .hero::before{
+      content:"";
+      position:absolute; inset:-2px;
+      background:
+        radial-gradient(850px 320px at 10% 20%, rgba(255,255,255,.07), transparent 60%),
+        radial-gradient(850px 320px at 90% 28%, rgba(255,255,255,.05), transparent 60%),
+        linear-gradient(120deg, transparent 0%, rgba(255,255,255,.03) 40%, transparent 70%);
+      pointer-events:none;
+      opacity:.9;
+    }
+    .heroGrid{
+      position:relative;
+      margin: 0 auto;
+      display:grid;
+      grid-template-columns: 1.1fr .95fr;
+      gap: 18px;
+      align-items:center;
+      padding: 0 8px;
+    }
+    .hKicker{
+      color:var(--muted2);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 12px;
+      margin-bottom: 14px;
+    }
+    h1{
+      margin:0 0 12px;
+      font-size: clamp(36px, 4.6vw, 62px);
+      line-height: 1.02;
+      letter-spacing: -1px;
+    }
+    .sub{
+      margin:0 0 18px;
+      color:var(--muted);
+      font-size: 15.5px;
+      line-height:1.65;
+      max-width: 58ch;
+    }
+    .btnRow{display:flex;gap:10px;flex-wrap:wrap;margin-top: 18px}
+    .btn{
+      display:inline-flex; align-items:center; gap:10px;
+      padding: 12px 14px;
+      border-radius: 999px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.04);
+      font-weight:700;
+      font-size: 13px;
+      transition:.2s ease;
+    }
+    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.06)}
+    .btn.primary{
+      background: rgba(255,255,255,.90);
+      color: rgba(0,0,0,.88);
+      border-color: rgba(255,255,255,.92);
+    }
+    .btn.primary:hover{background: rgba(255,255,255,.96)}
+    .pillRow{display:flex; gap:10px; flex-wrap:wrap; margin-top: 18px}
+    .pill{
+      padding: 9px 12px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background: rgba(0,0,0,.18);
+      color:var(--muted);
+      font-size:12.5px;
+    }
+
+    /* Mockup frame (con placeholder si no hay imagen) */
+    .mock{
+      border-radius: calc(var(--radius2) + 4px);
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.03);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+      min-height: 340px;
+    }
+    .mockTop{
+      display:flex; gap:8px; align-items:center;
+      padding: 10px 12px;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      background: rgba(0,0,0,.22);
+    }
+    .dot{width:9px;height:9px;border-radius:999px;background: rgba(255,255,255,.18)}
+    .media{
+      width:100%;
+      height:100%;
+      display:block;
+      object-fit:cover;
+    }
+    .placeholder{
+      height: 100%;
+      min-height: 300px;
+      background:
+        radial-gradient(500px 260px at 25% 25%, rgba(255,255,255,.10), transparent 65%),
+        radial-gradient(500px 260px at 75% 35%, rgba(255,255,255,.06), transparent 65%),
+        linear-gradient(140deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+    }
+    .mockHint{
+      position:absolute;
+      inset:auto 12px 12px 12px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      background: rgba(0,0,0,.35);
+      border:1px solid rgba(255,255,255,.10);
+      color: var(--muted);
+      font-size: 12.5px;
+      backdrop-filter: blur(10px);
+    }
+
+    /* Sections */
+    .section{margin-top: 54px;}
+    .centerHead{text-align:center;margin-bottom: 18px;}
+    .eyebrow{
+      color: var(--muted2);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 11px;
+      margin-bottom: 10px;
+    }
+    .centerHead h2{margin:0 0 10px;font-size: 22px;letter-spacing: -.2px;}
+    .centerHead p{margin:0;color: var(--muted);font-size: 14px;line-height: 1.6;}
+
+    /* Project cards */
+    .projectCard{
+      margin: 18px auto 0;
+      max-width: 980px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.03);
+      border-radius: calc(var(--radius2) + 6px);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .shotWrap{
+      width:100%;
+      aspect-ratio: 16/9;
+      background: rgba(0,0,0,.28);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .shot{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+    .projectBody{
+      padding: 16px 16px 18px;
+      display:flex;
+      justify-content:space-between;
+      gap:14px;
+      flex-wrap:wrap;
+      align-items:flex-start;
+    }
+    .projectBody h3{margin:0 0 6px; font-size: 18px}
+    .projectBody p{margin:0; color: var(--muted); line-height:1.6; max-width: 62ch; font-size: 14px}
+    .meta{
+      margin-top: 10px;
+      color: var(--muted2);
+      font-size: 12.5px;
+      display:flex; gap:10px; flex-wrap:wrap;
+    }
+    .projActions{display:flex; gap:10px; flex-wrap:wrap; margin-top: 6px;}
+    .link{
+      display:inline-flex; align-items:center; gap:8px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.03);
+      font-weight:700;
+      font-size: 12.5px;
+      transition:.2s ease;
+    }
+    .link:hover{transform: translateY(-1px); background: rgba(255,255,255,.06)}
+    .link.secondary{color: var(--muted)}
+
+    /* Testimonials */
+    .tGrid{
+      max-width: 980px;
+      margin: 18px auto 0;
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 12px;
+    }
+    .tCard{
+      grid-column: span 4;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.03);
+      border-radius: var(--radius2);
+      padding: 14px;
+    }
+    .tCard p{margin:0 0 10px; color: var(--muted); line-height:1.6; font-size: 13.5px}
+    .tCard strong{display:block; font-size: 13px}
+    .tCard span{display:block; color: var(--muted2); font-size: 12px; margin-top:3px}
+
+    /* CTA */
+    .cta{
+      max-width: 980px;
+      margin: 32px auto 0;
+      text-align:center;
+      padding: 28px 16px;
+      border:1px solid var(--border);
+      border-radius: calc(var(--radius2) + 6px);
+      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03));
+    }
+    .cta h2{margin:0 0 10px; font-size: 30px; letter-spacing: -.6px}
+    .cta p{margin:0 0 16px; color: var(--muted); line-height:1.6}
+    .footer{
+      max-width: 980px;
+      margin: 24px auto 0;
+      color: var(--muted2);
+      font-size: 12px;
+      display:flex;
+      justify-content:space-between;
+      gap: 10px;
+      flex-wrap:wrap;
+      padding: 0 6px;
+    }
+
+    @media (max-width: 920px){
+      .heroGrid{grid-template-columns:1fr}
+      .mock{min-height: 280px}
+      .nav{display:none}
+      .menuBtn{display:inline-flex}
+      .tCard{grid-column: span 12}
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip" href="#main">Saltar al contenido</a>
+
+  <div class="wrap">
+    <header class="topbar" role="banner">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">⌁</div>
+        <div>Alex</div>
+      </div>
+
+      <nav class="nav" aria-label="Navegación principal">
+        <a href="#proyectos">Proyectos</a>
+        <a href="#testimonios">Testimonios</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+
+      <button class="menuBtn" id="menuBtn" aria-expanded="false" aria-controls="mobileNav">
+        ☰ Menú
+      </button>
+    </header>
+
+    <nav class="mobileNav" id="mobileNav" aria-label="Navegación móvil">
+      <a href="#proyectos">Proyectos</a>
+      <a href="#testimonios">Testimonios</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+
+    <main id="main">
+      <!-- HERO -->
+      <section class="hero" id="inicio">
+        <div class="heroGrid">
+          <div>
+            <div class="hKicker">Diseño + Desarrollo</div>
+            <h1>Diseño y construyo experiencias web modernas.</h1>
+            <p class="sub">
+              Menús digitales, páginas para negocios y sistemas sencillos.
+              Minimalismo, velocidad y una entrega que se siente premium.
+            </p>
+
+            <div class="btnRow">
+              <a class="btn primary" href="#proyectos">Ver proyectos</a>
+              <a class="btn" href="#contacto">Hablemos</a>
+            </div>
+
+            <div class="pillRow" aria-label="Tecnologías principales">
+              <span class="pill">HTML • CSS • JS</span>
+              <span class="pill">PHP • MySQL</span>
+              <span class="pill">GitHub Pages</span>
+              <span class="pill">Responsive</span>
+            </div>
+          </div>
+
+          <aside class="mock" aria-label="Vista previa">
+            <div class="mockTop" aria-hidden="true">
+              <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+            </div>
+
+            <!-- Si NO tienes imagen aún, se mostrará un placeholder bonito -->
+            <div class="shotWrap" style="border-bottom:none">
+              <img class="media" id="heroImg" src="assets/hero-preview.jpg" alt="Preview del proyecto" loading="lazy" />
+              <div class="placeholder" id="heroFallback" hidden></div>
+            </div>
+
+            <div class="mockHint">
+              Tip: sube un screenshot limpio (sin tabs) para que se vea Apple-style.
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- PROYECTOS -->
+      <section class="section" id="proyectos">
+        <div class="centerHead">
+          <div class="eyebrow">Lo más reciente</div>
+          <h2>Proyectos destacados</h2>
+          <p>Una selección corta, pero con impacto. Demos, código y casos.</p>
+        </div>
+
+        <div id="projectsRoot"></div>
+      </section>
+
+      <!-- TESTIMONIOS -->
+      <section class="section" id="testimonios">
+        <div class="centerHead">
+          <div class="eyebrow">Confianza</div>
+          <h2>Testimonios</h2>
+          <p>Cuando tengas clientes, aquí se vuelve tu sección más poderosa.</p>
+        </div>
+
+        <div class="tGrid">
+          <div class="tCard">
+            <p>“Entrega rápida y diseño muy limpio. Se notó el cuidado en cada detalle.”</p>
+            <strong>Nombre Apellido</strong>
+            <span>Cliente — Restaurante</span>
+          </div>
+          <div class="tCard">
+            <p>“Entendió exactamente lo que necesitábamos y lo dejó funcionando sin complicaciones.”</p>
+            <strong>Nombre Apellido</strong>
+            <span>Cliente — Negocio local</span>
+          </div>
+          <div class="tCard">
+            <p>“Comunicación clara, avances constantes y resultado final profesional.”</p>
+            <strong>Nombre Apellido</strong>
+            <span>Cliente — Servicio</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA FINAL -->
+      <section class="section" id="contacto">
+        <div class="cta">
+          <h2>¿Tienes un proyecto o producto que quieras platicar?</h2>
+          <p>Envíame un mensaje y te respondo con propuesta y tiempos.</p>
+
+          <div class="btnRow" style="justify-content:center">
+            <!-- CAMBIA ESTOS LINKS -->
+            <a class="btn primary" href="https://wa.me/521XXXXXXXXXX" target="_blank" rel="noopener">WhatsApp</a>
+            <a class="btn" href="mailto:tucorreo@correo.com">Correo</a>
+            <a class="btn" href="https://github.com/ALEXISEMIR" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </div>
+
+        <div class="footer">
+          <div>© <span id="year"></span> Alex</div>
+          <div>Minimal • Rápido • Premium</div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    // Año
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Menú móvil
+    const btn = document.getElementById("menuBtn");
+    const mobileNav = document.getElementById("mobileNav");
+    btn?.addEventListener("click", () => {
+      const isOpen = mobileNav.style.display === "block";
+      mobileNav.style.display = isOpen ? "none" : "block";
+      btn.setAttribute("aria-expanded", String(!isOpen));
+    });
+
+    // Cierra menú al dar clic en un link
+    mobileNav?.querySelectorAll("a").forEach(a => {
+      a.addEventListener("click", () => {
+        mobileNav.style.display = "none";
+        btn.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    // Fallback para imagen del hero (si no existe assets/hero-preview.jpg)
+    const heroImg = document.getElementById("heroImg");
+    const heroFallback = document.getElementById("heroFallback");
+    heroImg?.addEventListener("error", () => {
+      heroImg.style.display = "none";
+      heroFallback.hidden = false;
+    });
+
+    // Proyectos (solo editas este arreglo)
+    const projects = [
+      {
+        title: "Menú digital para restaurante",
+        desc: "Menú rápido, elegante y listo para QR. Ideal para restaurantes que quieren verse modernos sin depender de apps.",
+        tags: ["Responsive", "HTML/CSS/JS", "Optimizado"],
+        image: "assets/project-1.jpg",
+        demo: "#",
+        code: "#",
+      },
+      {
+        title: "Landing page para negocio",
+        desc: "Página clara con secciones y CTA para convertir visitas en mensajes. Perfecta para servicios locales.",
+        tags: ["SEO básico", "Velocidad", "Diseño limpio"],
+        image: "assets/project-2.jpg",
+        demo: "#",
+        code: "#",
+      }
+    ];
+
+    const root = document.getElementById("projectsRoot");
+
+    function projectCard(p){
+      const card = document.createElement("article");
+      card.className = "projectCard";
+
+      const shotWrap = document.createElement("div");
+      shotWrap.className = "shotWrap";
+
+      const img = document.createElement("img");
+      img.className = "shot";
+      img.alt = `Screenshot: ${p.title}`;
+      img.loading = "lazy";
+      img.src = p.image;
+
+      const fallback = document.createElement("div");
+      fallback.className = "placeholder";
+      fallback.hidden = true;
+
+      img.addEventListener("error", () => {
+        img.style.display = "none";
+        fallback.hidden = false;
+      });
+
+      shotWrap.appendChild(img);
+      shotWrap.appendChild(fallback);
+
+      const body = document.createElement("div");
+      body.className = "projectBody";
+
+      const left = document.createElement("div");
+      left.innerHTML = `
+        <h3>${p.title}</h3>
+        <p>${p.desc}</p>
+        <div class="meta">${p.tags.map(t => `<span>${t}</span>`).join(" • ")}</div>
+      `;
+
+      const actions = document.createElement("div");
+      actions.className = "projActions";
+      actions.innerHTML = `
+        <a class="link" href="${p.demo}" target="_blank" rel="noopener">Ver demo</a>
+        <a class="link secondary" href="${p.code}" target="_blank" rel="noopener">Ver código</a>
+      `;
+
+      body.appendChild(left);
+      body.appendChild(actions);
+
+      card.appendChild(shotWrap);
+      card.appendChild(body);
+
+      return card;
+    }
+
+    projects.forEach(p => root.appendChild(projectCard(p)));
+  </script>
+</body>
+</html>
+>>>>>>> 6983b9e (Improve portfolio layout and accessibility)
