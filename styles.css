@@ -162,11 +162,11 @@ h1 {
     background: rgba(255, 255, 255, .04);
     font-weight: 700;
     font-size: 13px;
-    transition: .2s ease;
+    transition: transform .18s ease, background .18s ease, border-color .18s ease;
 }
 
 .btn:hover {
-    transform: translateY(-1px);
+    transform: translateY(-2px);
     background: rgba(255, 255, 255, .06)
 }
 
@@ -194,6 +194,12 @@ h1 {
     background: rgba(24, 23, 28, .75);
     color: var(--muted);
     font-size: 12.5px;
+    transition: transform .18s ease, background .18s ease, border-color .18s ease;
+}
+
+.pill:hover {
+    transform: translateY(-1px);
+    background: rgba(255, 255, 255, .06);
 }
 
 /* mockup frame on right */
@@ -512,25 +518,36 @@ h1 {
     margin-bottom: 6px;
 }
 
-/* Modal */
+/* Modal (suave + elegante, sin fallos) */
 .modal {
     position: fixed;
     inset: 0;
-    display: none;
+    opacity: 0;
+    pointer-events: none;
     z-index: 999;
+    transition: opacity 220ms ease;
 }
 
 .modal.isOpen {
-    display: block;
+    opacity: 1;
+    pointer-events: auto;
 }
 
+/* Backdrop macOS-ish */
 .modalBackdrop {
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, .55);
-    backdrop-filter: blur(6px);
+    background: rgba(0, 0, 0, .35);
+    backdrop-filter: blur(14px);
+    opacity: 0;
+    transition: opacity 220ms ease;
 }
 
+.modal.isOpen .modalBackdrop {
+    opacity: 1;
+}
+
+/* Window */
 .modalBox {
     position: relative;
     max-width: 720px;
@@ -539,19 +556,26 @@ h1 {
     border-radius: 22px;
     border: 1px solid rgba(255, 255, 255, .12);
     background: rgba(24, 23, 28, .92);
-    box-shadow: 0 18px 70px rgba(0, 0, 0, .55);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, .35);
 }
 
+/* Botón cerrar (igual pero con hover suave) */
 .modalClose {
     position: absolute;
     top: 10px;
     right: 10px;
     border: 1px solid rgba(255, 255, 255, .12);
     background: rgba(255, 255, 255, .06);
-    color: var(--text);
+    color: rgba(255, 255, 255, .92);
     border-radius: 999px;
     padding: 8px 10px;
     cursor: pointer;
+    transition: transform 160ms ease, background 160ms ease;
+}
+
+.modalClose:hover {
+    transform: scale(1.03);
+    background: rgba(255, 255, 255, .10);
 }
 
 .modalBox h3 {
@@ -587,4 +611,33 @@ h1 {
     background: rgba(255, 255, 255, .92);
     color: rgba(0, 0, 0, .88);
     border-color: rgba(255, 255, 255, .92);
+}
+
+/* Opcional: reduce motion */
+@media (prefers-reduced-motion: reduce) {
+
+    .modal,
+    .modalBackdrop,
+    .modalBox {
+        transition: none !important;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity .6s ease, transform .6s ease;
+}
+
+.reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
 }
