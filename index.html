@@ -3,159 +3,228 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Alex — Portafolio</title>
+  <title>Alex - Portafolio</title>
   <meta name="description" content="Portafolio de proyectos de Alex" />
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-
-
-  
 </head>
 
 <body>
-  <div class="wrap">
+  <aside class="ambientOrbs" aria-hidden="true">
+    <span class="orb orbOne"></span>
+    <span class="orb orbTwo"></span>
+    <span class="orb orbThree"></span>
+  </aside>
+  <div class="cursor" aria-hidden="true"></div>
 
-    <header class="topbar">
+  <div class="wrap">
+    <header class="topbar" aria-label="Barra de navegación principal">
       <div class="brand">
-        <div class="logo">⌁</div>
+        <div class="logo">A/</div>
         <div>Alex</div>
       </div>
-      <nav class="nav">
-        <a href="#proyectos">Proyectos</a>
-        <a href="#testimonios">Testimonios</a>
-        <a href="#contacto">Contacto</a>
+      <nav class="nav" aria-label="Secciones principales">
+        <a href="#proyectos" data-i18n="navProjects">Proyectos</a>
+        <a href="#colaboraciones" data-i18n="navCollaborations">Colaboraciones</a>
+        <a href="#contacto" data-i18n="navContact">Contacto</a>
       </nav>
+      <button class="langToggle" id="langToggle" type="button" data-i18n="langToggle" data-i18n-aria-label="langToggleLabel">ES / EN</button>
     </header>
 
-    <!-- HERO -->
-    <section class="hero reveal" id="inicio">
-      <div class="heroGrid">
-        <div>
-          <div class="hKicker">Diseño + Desarrollo</div>
-          <h1>Hago que lo simple se sienta premium.</h1>
-          <p class="sub">
-            Me gusta el diseño limpio, pero sobre todo que funcione: rápido, claro y sin vueltas. Si un negocio necesita verse bien y vender mejor, ahí entro yo.
-          </p>
+    <main>
+      <!-- HERO -->
+      <section class="hero reveal" id="inicio" aria-labelledby="heroTitle">
+        <div class="heroGrid">
+          <div>
+            <div class="hKicker" data-i18n="heroKicker">Frontend + UI Engineering</div>
+            <p class="heroTagline" data-i18n="heroTagline">Hago que lo simple se sienta premium.</p>
+            <h1 id="heroTitle" data-i18n="heroTitle">Hola, soy Alex. Construyo interfaces donde el código limpio se encuentra con una experiencia de usuario intuitiva.</h1>
+            <p class="sub" data-i18n="heroSub">
+              Trabajo con equipos que valoran la claridad, la accesibilidad y el rendimiento. Diseño sistemas visuales que se sienten humanos y productos que responden rápido.
+            </p>
 
           <div class="btnRow">
-            <a class="btn primary" href="#proyectos">Ver proyectos</a>
-            <a class="btn" href="#contacto">Hablemos</a>
+            <a class="btn primary magnetic" href="#proyectos" data-i18n="ctaProjects">Ver proyectos</a>
+            <a class="btn magnetic" href="#contacto" data-i18n="ctaTalk">Hablemos</a>
+            <button class="btn btnCv magnetic" type="button" id="cvPreviewBtn" aria-label="Ver Curriculum Vitae en PDF">
+              <svg class="btnIcon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M6 2h9l5 5v15a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm8 1.5V8h4.5L14 3.5zM7 12h10v2H7v-2zm0 4h10v2H7v-2zm0-8h6v2H7V8z" fill="currentColor"/>
+              </svg>
+              <span data-i18n="ctaCvView">Ver CV</span>
+            </button>
           </div>
 
-          <div class="pillRow">
-            <span class="pill">HTML • CSS • JS</span>
-            <span class="pill">PHP • MySQL</span>
-            <span class="pill">GitHub Pages</span>
-            <span class="pill">Responsive</span>
+          <div class="pillRow" aria-label="Tecnologías principales" data-i18n-aria-label="pillAria">
+            <span class="pill magnetic">HTML / CSS / JS</span>
+            <span class="pill magnetic">PHP / MySQL</span>
+            <span class="pill magnetic">GitHub Pages</span>
+            <span class="pill magnetic">Responsive</span>
+          </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- PROYECTOS -->
-    <section class="section reveal" id="proyectos">
-      <div class="timeline">
-        <div class="tItem reveal"
-          tabindex="0"
-          data-title="Menú digital para restaurante"
-          data-desc="Quería que un restaurante pudiera verse moderno sin depender de apps. Algo rápido, claro y que simplemente funcionara."
-          data-demo="#"
-          data-code="#">
-          <div class="tDot"></div>
-          <div class="tContent">
-            <div class="tTop">
-              <h3>Menú digital para restaurante</h3>
-              <span class="tMeta">2025 · Proyecto personal</span>
+      <!-- PROYECTOS -->
+      <section class="section reveal" id="proyectos" aria-labelledby="projectsTitle">
+        <div class="sectionHead">
+          <div class="eyebrow" data-i18n="projectsEyebrow">Selección</div>
+          <h2 id="projectsTitle" data-i18n="projectsTitle">Proyectos recientes</h2>
+          <p data-i18n="projectsIntro">Casos donde el detalle de UI y el rendimiento cuentan más que el ruido.</p>
+        </div>
+
+        <div class="projectsGrid" aria-label="Proyectos destacados" data-i18n-aria-label="projectsAria">
+          <article class="projectCard reveal projectCardMenu"
+            tabindex="0"
+            data-title="Menú digital para restaurante"
+            data-desc="Una experiencia rápida y clara, pensada para equipos de cocina y clientes desde el móvil. Enfoque en carga instantánea y accesibilidad."
+            data-i18n-title="projectMenuTitle"
+            data-i18n-desc="projectMenuModalDesc"
+            data-demo="#"
+            data-code="#">
+            <div class="projectMeta" data-i18n="projectMenuMeta">2025 • UI / Frontend</div>
+            <h3 data-i18n="projectMenuTitle">Menú digital para restaurante</h3>
+            <p data-i18n="projectMenuDesc">Diseño modular, navegación veloz y tipografía legible en ambientes con poca luz.</p>
+            <div class="projectTags">
+              <span>UI system</span>
+              <span>Performance</span>
+              <span>Responsive</span>
             </div>
-            <div class="tReason">
-              Decisión: simple primero, estética después.
+            <div class="projectLinks">
+              <a class="projectBtn glowBtn" href="#" target="_blank" rel="noopener" data-i18n="btnDemo">Ver demo</a>
+              <a class="projectBtn glowBtn ghost" href="#" target="_blank" rel="noopener" data-i18n="btnCode">Ver código</a>
             </div>
-            <p>
-              Quería que un restaurante pudiera verse moderno sin depender de apps.
-              Algo rápido, claro y que simplemente funcionara.
-            </p>
-            <div class="tLinks">
-              <a href="#" target="_blank" rel="noopener">Demo</a>
-              <span>·</span>
-              <a href="#" target="_blank" rel="noopener">Código</a>
+          </article>
+
+          <article class="projectCard reveal projectCardLanding"
+            tabindex="0"
+            data-title="Landing page para negocio"
+            data-desc="Landing enfocada en conversión con jerarquía visual fuerte y micro-copy humano. Pensada para medir, iterar y crecer."
+            data-i18n-title="projectLandingTitle"
+            data-i18n-desc="projectLandingModalDesc"
+            data-demo="#"
+            data-code="#">
+            <div class="projectMeta" data-i18n="projectLandingMeta">2025 • Producto / UX</div>
+            <h3 data-i18n="projectLandingTitle">Landing page para negocio</h3>
+            <p data-i18n="projectLandingDesc">Arquitectura de contenido clara para explicar valor y convertir visitas en contactos reales.</p>
+            <div class="projectTags">
+              <span>Copy</span>
+              <span>SEO</span>
+              <span>Analytics</span>
             </div>
+            <div class="projectLinks">
+              <a class="projectBtn glowBtn" href="#" target="_blank" rel="noopener" data-i18n="btnDemo">Ver demo</a>
+              <a class="projectBtn glowBtn ghost" href="#" target="_blank" rel="noopener" data-i18n="btnCode">Ver código</a>
+            </div>
+          </article>
+
+          <article class="projectCard reveal projectCardPhp"
+            tabindex="0"
+            data-title="Sistema de gestión de inventario"
+            data-desc="Backend en PHP con panel de control, roles y auditoría básica. Integración con MySQL para trazabilidad de stock y alertas."
+            data-i18n-title="projectPhpTitle"
+            data-i18n-desc="projectPhpModalDesc"
+            data-demo="#"
+            data-code="#">
+            <div class="projectMeta" data-i18n="projectPhpMeta">2024 • PHP / MySQL</div>
+            <h3 data-i18n="projectPhpTitle">Sistema de gestión de inventario</h3>
+            <p data-i18n="projectPhpDesc">Alta de productos, movimientos de entrada/salida y reportes con permisos por rol.</p>
+            <aside class="terminalMock" aria-label="Vista previa de terminal" data-i18n-aria-label="terminalAria">
+              <div class="terminalBar">
+                <span></span>
+                <span></span>
+                <span></span>
+                <strong>inventory.php</strong>
+              </div>
+              <pre><code data-i18n="terminalSnippet">&gt; php inventory-runner.php --sync-db
+ok Conectado a MySQL
+ok 128 items sincronizados
+ok Alertas por stock mínimo activas</code></pre>
+            </aside>
+            <div class="projectTags">
+              <span>PHP 8</span>
+              <span>MySQL</span>
+              <span>Auth</span>
+            </div>
+            <div class="projectLinks">
+              <a class="projectBtn glowBtn" href="#" target="_blank" rel="noopener" data-i18n="btnUi">Ver interfaz</a>
+              <a class="projectBtn glowBtn ghost" href="#" target="_blank" rel="noopener" data-i18n="btnBackendDocs">Ver Documentación del Backend</a>
+              <button class="projectBtn glowBtn ghost phpSnippetBtn" type="button" data-snippet="phpSnippet" data-i18n="btnPhpSnippet">Ver snippet PHP</button>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- COLABORACIONES -->
+      <section class="section" id="colaboraciones" aria-labelledby="collabTitle">
+        <div class="centerHead">
+          <div class="eyebrow" data-i18n="collabEyebrow">Colaboraciones</div>
+          <h2 id="collabTitle" data-i18n="collabTitle">Colaboraciones</h2>
+          <p data-i18n="collabCopy">Actualmente buscando mi próximo desafío técnico. Disponible para proyectos freelance o tiempo completo.</p>
+        </div>
+      </section>
+
+      <!-- CTA FINAL -->
+      <section class="section reveal" id="contacto" aria-labelledby="ctaTitle">
+        <div class="cta">
+          <h2 id="ctaTitle" data-i18n="ctaTitle">¿Tienes un proyecto o producto que quieras platicar?</h2>
+          <p data-i18n="ctaCopy">Envíame un mensaje y te respondo con propuesta y tiempos.</p>
+          <div class="btnRow" style="justify-content:center">
+            <a class="btn primary" href="https://wa.me/521XXXXXXXXXX" target="_blank" rel="noopener">WhatsApp</a>
+            <a class="btn" href="mailto:tucorreo@correo.com">Correo</a>
+            <a class="btn" href="https://github.com/tuusuario" target="_blank" rel="noopener">GitHub</a>
           </div>
         </div>
 
-        <div class="tItem reveal"
-          tabindex="0"
-          data-title="Landing page para negocio"
-          data-desc="Pensado para negocios pequeños que necesitan explicar bien qué hacen y convertir visitas en mensajes reales."
-          data-demo="#"
-          data-code="#">
-          <div class="tDot"></div>
-          <div class="tContent">
-            <div class="tTop">
-              <h3>Landing page para negocio</h3>
-              <span class="tMeta">2025 · Proyecto personal</span>
-            </div>
-            <div class="tReason">
-              Objetivo: claridad, no ruido.
-            </div>
-            <p>
-              Pensado para negocios pequeños que necesitan explicar bien qué hacen
-              y convertir visitas en mensajes reales.
-            </p>
-            <div class="tLinks">
-              <a href="#" target="_blank" rel="noopener">Demo</a>
-              <span>·</span>
-              <a href="#" target="_blank" rel="noopener">Código</a>
-            </div>
-          </div>
+        <div class="footer">
+          <div>© <span id="year"></span> Alex</div>
+          <div data-i18n="footerTagline">Preciso / Rápido / Humano</div>
         </div>
-      </div>
-
-    <!-- TESTIMONIOS -->
-    <section class="section" id="testimonios">
-      <div class="centerHead">
-        <div class="eyebrow">Confianza</div>
-        <h2>Testimonios</h2>
-        <p>Cuando tengas clientes, aquí se vuelve tu sección más poderosa.</p>
-      </div>
-
-     
-    </section>
-
-    <!-- CTA FINAL -->
-    <section class="section reveal" id="contacto">
-      <div class="cta">
-        <h2>¿Tienes un proyecto o producto que quieras platicar?</h2>
-        <p>Envíame un mensaje y te respondo con propuesta y tiempos.</p>
-        <div class="btnRow" style="justify-content:center">
-          <a class="btn primary" href="https://wa.me/521XXXXXXXXXX" target="_blank" rel="noopener">WhatsApp</a>
-          <a class="btn" href="mailto:tucorreo@correo.com">Correo</a>
-          <a class="btn" href="https://github.com/tuusuario" target="_blank" rel="noopener">GitHub</a>
-        </div>
-      </div>
-
-      <div class="footer">
-        <div>© <span id="year"></span> Alex</div>
-        <div>Minimal • Rápido • Premium</div>
-      </div>
-    </section>
-
+      </section>
+    </main>
   </div>
 
   <div class="modal" id="modal" aria-hidden="true">
     <div class="modalBackdrop" data-close></div>
 
-    <div class="modalBox" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-      <button class="modalClose" type="button" aria-label="Cerrar" data-close>✕</button>
+    <div class="modalBox" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalDesc">
+      <button class="modalClose" type="button" aria-label="Cerrar" data-close>×</button>
 
       <h3 id="modalTitle"></h3>
       <p id="modalDesc"></p>
 
+      <div class="modalCode" id="modalCode" aria-label="Snippet de código" data-i18n-aria-label="modalSnippetAria"></div>
+
       <div class="modalActions">
-        <a id="modalDemo" class="modalBtn primary" href="#" target="_blank" rel="noopener">Ver demo</a>
-        <a id="modalCode" class="modalBtn" href="#" target="_blank" rel="noopener">Ver código</a>
+        <a id="modalDemo" class="modalBtn primary" href="#" target="_blank" rel="noopener" data-i18n="btnDemo">Ver demo</a>
+        <a id="modalCodeLink" class="modalBtn" href="#" target="_blank" rel="noopener" data-i18n="btnCode">Ver código</a>
       </div>
     </div>
   </div>
+
+  <template id="phpSnippet">
+    <pre class="codeBlock"><code><span class="token comment">// InventoryController.php</span>
+<span class="token keyword">final class</span> <span class="token class">InventoryController</span>
+{
+    <span class="token keyword">public function</span> <span class="token function">store</span>(<span class="token type">Request</span> $request): <span class="token type">JsonResponse</span>
+    {
+        $payload = $request-&gt;validate([
+            <span class="token string">'sku'</span> =&gt; <span class="token string">'required|string|max:64'</span>,
+            <span class="token string">'name'</span> =&gt; <span class="token string">'required|string|max:140'</span>,
+            <span class="token string">'stock'</span> =&gt; <span class="token string">'required|integer|min:0'</span>,
+        ]);
+
+        $item = $this-&gt;inventory-&gt;create($payload);
+
+        <span class="token keyword">return</span> response()-&gt;json([
+            <span class="token string">'id'</span> =&gt; $item-&gt;id,
+            <span class="token string">'status'</span> =&gt; <span class="token string">'created'</span>,
+        ], 201);
+    }
+}</code></pre>
+  </template>
 
   <script src="script.js" defer></script>
 </body>
